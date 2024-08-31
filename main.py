@@ -1,9 +1,29 @@
 from colorama import Style,Fore
 import os
-from pog import runp, setup
 
 
-
+def runp(filep):
+    try:
+       os.system(f"python {filep}")
+    except FileNotFoundError:
+        print(Fore.RED + "Arquivo não encontrado.")
+        start()
+    except Exception as e:
+        print("o sistema não conseguiu executar um script")
+        start()
+class setup:
+    def setupog():
+        if not os.path.exists("pogins"):
+            os.makedirs("pogins")
+    class ifers:
+        def setupif(self, type: str):
+            if type == "pog":
+                setup.setupog()
+            pass
+        pass
+    pass
+  
+  
 
 
 def start():
@@ -35,22 +55,13 @@ def start():
     os.chdir("..")
   elif len(cod) == 3 and cod[0] == "pog":
     if cod[1] == "install":
-      try:
-        arquivo = cod[2]
-        runp(arquivo)
-      except FileNotFoundError:
-        print(Fore.RED + "Arquivo não encontrado.")
-        start()
-      except Exception as e:
-        print("o sistema não conseguiu executar um script")
-        start()
-      pass
+      arquivo = cod[2]
+      runp(arquivo)
   else:
     print(Fore.RED + "Comando Invalido")
     start()
   
 print(Fore.BLUE + "bem-vindos!")
 start()
-  
-  
-  
+
+# Caminho do script Python a ser executado
