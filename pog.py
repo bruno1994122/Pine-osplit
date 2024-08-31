@@ -7,4 +7,10 @@ class setup:
     def setupog():
         if not os.path.exists("pogins"):
             os.makedirs("pogins")
+    class ifers:
+        def setupif(self, type: str):
+            if type == "pog":
+                setup.setupog()
+            pass
+        pass
     pass

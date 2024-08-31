@@ -1,6 +1,6 @@
 from colorama import Style,Fore
 import os
-from pog import runp
+from pog import runp, setup
 
 
 
@@ -35,8 +35,15 @@ def start():
     os.chdir("..")
   elif len(cod) == 3 and cod[0] == "pog":
     if cod[1] == "install":
-      arquivo = cod[2]
-      runp(arquivo)
+      try:
+        arquivo = cod[2]
+        runp(arquivo)
+      except FileNotFoundError:
+        print(Fore.RED + "Arquivo não encontrado.")
+        start()
+      except Exception as e:
+        print("o sistema não conseguiu executar um script")
+        start()
       pass
   else:
     print(Fore.RED + "Comando Invalido")
