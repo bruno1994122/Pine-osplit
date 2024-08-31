@@ -1,5 +1,6 @@
 from colorama import Style,Fore
 import os
+from pog import runp
 
 
 
@@ -32,6 +33,11 @@ def start():
       start()
   elif cod[0] == "cd" and len(cod) > 1:
     os.chdir("..")
+  elif len(cod) == 3 and cod[0] == "pog":
+    if cod[1] == "install":
+      arquivo = cod[2]
+      runp(arquivo)
+      pass
   else:
     print(Fore.RED + "Comando Invalido")
     start()
